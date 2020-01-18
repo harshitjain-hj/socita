@@ -7,16 +7,16 @@
             <img src="https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png" alt="" height ="200" class="rounded-circle">
         </div>
         <div class="col-9 pt-5">
-            <div><h1>Harshit Jain</h1></div>
+            <div><h1>{{ $user->username }}</h1></div>
             <div class="d-flex">
                 <div class="pr-5"><strong>500</strong> Tasks</div>
                 <div class="pr-5"><strong>100</strong> Followers</div>
                 <div class="pr-5"><strong>200</strong> Following</div>
             </div>
             <div class="pt-4">
-                <div><strong>Harshit Jain</strong></div>
-                <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, sunt?</div>
-                <div><a href="#">www.link.com</a></div>
+                <div><strong>{{ $user->name }}</strong></div>
+                <div>{{ $user->profile->description }}</div>
+                <div><a href="{{ $user->profile->url }}">{{ $user->profile->url }}</a></div>
             </div>
         </div>
     </div>
