@@ -4,16 +4,20 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ik0DTcc5tqR97pcWX-S5aiHAE6NMK7aiP2RzjN0rKa7zQ-am&s" alt="" height ="180" class="rounded-circle">
+            <img src="{{ $user->profile->profile_image }}" alt="Profile Pic" height ="180" width="180" class="rounded-circle">
         </div>
-        <div class="col-9 pt-5">
+        <div class="col-9 pt-4">
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{ $user->username }}</h1>
-                @if( count($user->diaries) < 3 )
-                    <a href="/diary/create">Add New Book</a>
-                @endif
-                
+                @can('update', $user->profile)
+                    @if( count($user->diaries) < 3 )
+                        <a href="/diary/create">Add New Book</a>
+                    @endif
+                @endcan
             </div>
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endcan
             <div class="d-flex">
                 <div class="pr-5"><strong>500</strong> Tasks</div>
                 <div class="pr-5"><strong>100</strong> Followers</div>
@@ -21,6 +25,7 @@
             </div>
             <div class="pt-4">
                 <div><strong>{{ $user->name }}</strong></div>
+                <div>{{ $user->profile->title }}</div>
                 <div>{{ $user->profile->description }}</div>
                 <div><a href="{{ $user->profile->url }}">{{ $user->profile->url }}</a></div>
             </div>
