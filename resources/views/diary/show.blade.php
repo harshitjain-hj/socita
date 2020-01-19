@@ -12,7 +12,7 @@
                     <p>{{ $diary->created_at }}</p>
                 </div>
                 <div class="col-4 align-self-center">
-                    <a href="#" class="btn btn-primary">Create a Todo</a>
+                    <a href="/diary/task/create" class="btn btn-primary">Add new Task</a>
                 </div>
             </div>
         </div>        
