@@ -37,6 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function diaries()
+    {
+        return $this->hasMany(Diary::class);
+    }
+
     public function profile()
     {
         return $this->hasOne(Profile::class);
