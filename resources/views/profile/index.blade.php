@@ -8,7 +8,10 @@
         </div>
         <div class="col-9 pt-4">
             <div class="d-flex justify-content-between align-items-baseline">
-                <h1>{{ $user->username }}</h1>
+                <div class="d-flex align-items-start">
+                    <h1>{{ $user->username }}</h1>
+                        <follow-button user-id="{{ $user->id }}"></follow-button>
+                </div>
                 @can('update', $user->profile)
                     @if( count($user->diaries) < 3 )
                         <a href="/diary/create">Add New Book</a>
@@ -40,6 +43,8 @@
                         <h5 class="card-title">{{ $diary->title }}</h5>
                         <p>Created At - {{ $diary->created_at }}</p>
                         <p class="card-text">{{ $diary->description }}</p>
+
+                        <!-- TODO: Disable this  -->
                         <a href="/diary/{{ $diary->id }}" class="btn btn-primary">Look</a>
                     </div>
                 </div>
