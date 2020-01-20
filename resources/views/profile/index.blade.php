@@ -10,7 +10,7 @@
             <div class="d-flex justify-content-between align-items-baseline">
                 <div class="d-flex align-items-start">
                     <h1>{{ $user->username }}</h1>
-                        <follow-button user-id="{{ $user->id }}"></follow-button>
+                        <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
                 </div>
                 @can('update', $user->profile)
                     @if( count($user->diaries) < 3 )
@@ -22,9 +22,10 @@
                 <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
             @endcan
             <div class="d-flex">
-                <div class="pr-5"><strong>500</strong> Tasks</div>
-                <div class="pr-5"><strong>100</strong> Followers</div>
-                <div class="pr-5"><strong>200</strong> Following</div>
+                <div class="pr-4"><strong>500</strong> Tasks</div>
+                <div class="pr-4"><strong>{{ count($user->diaries) }}</strong> Books</div>
+                <div class="pr-4"><strong>{{ count($user->profile->followers) }}</strong> Followers</div>
+                <div class="pr-4"><strong>{{ count($user->following) }}</strong> Following</div>
             </div>
             <div class="pt-4">
                 <div><strong>{{ $user->name }}</strong></div>
