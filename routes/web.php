@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -27,6 +24,7 @@ Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit
 Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
 
 // routes for diary
+Route::get('/', 'DiaryController@index');
 Route::get('/diary/create', 'DiaryController@create');
 Route::post('/diary', 'DiaryController@store');
 Route::get('/diary/{diary}', 'DiaryController@show');

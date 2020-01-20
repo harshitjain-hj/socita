@@ -3,12 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Diary;
 
 class DiaryController extends Controller
 {
     public function __construct()
     {
          $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        
+
+        $diaries = Diary::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->get();
+        // dd($diaries);
+        return view('diary/index', compact('diaries'));
     }
     
     public function create()
