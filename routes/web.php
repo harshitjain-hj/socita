@@ -32,3 +32,7 @@ Route::get('/diary/{diary}', 'DiaryController@show');
 // routes for task
 Route::get('/diary/{diary}/task/create', 'TaskController@create');
 Route::post('/diary/{diary}/task', 'TaskController@store');
+
+// routes for create
+Route::get('/rate/{task}/create', 'RatingController@create');
+Route::post('/rate/{task}', 'RatingController@store');

@@ -22,7 +22,7 @@
             @foreach($diary->tasks as $task)
                 <div class="d-flex bd-highlight list-group-item">
                     <div class="p-2 flex-grow-1 bd-highlight"><h5>{{ $task->title }}</h5></div>
-                    <div class="p-2 bd-highlight text-warning">101</div>
+                    <a href="/rate/{{$task->id}}/create" class="p-2 bd-highlight text-warning">Rate</a>
                     <div class="p-2 bd-highlight text-danger">{{ $task->deadline }}</div>
                 </div>
             @endforeach
