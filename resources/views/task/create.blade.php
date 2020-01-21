@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="/diary/task" method="post">
+    <form action="/diary/{{$diary->id}}/task" method="post">
         @csrf
         <div class="row">
             <div class="col-8 offset-2">

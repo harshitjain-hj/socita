@@ -4,27 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Diary;
+
+
 class TaskController extends Controller
 {
-    public function create() 
+    public function create($diary) 
     {
-        return view('task/create');
+        $diary = Diary::findOrFail($diary);
+        // dd($diary);
+        return view('task/create', compact('diary'));
     }
 
-    public function store() 
+    public function store($diary) 
     {
+        $diary = Diary::findOrFail($diary);
+
         $data = request()->validate([
             'title' => 'required',
-            // 'deadline' => 'required',
+            'deadline' => 'required',
         ]);
 
-        auth()->user()->diaries()->tasks()->create([
+        $diary->tasks()->create([
             'title' => $data['title'],
-            'description' => $data['description'],
-            'image' => $data['image'],
+            'deadline' => $data['deadline'],
         ]);
 
-        // return view('task/create');
-        dd(request()->all());
+        // dd(request()->all());
+        // dd($diary);
+        return redirect('/diary/' . $diary->id);    
     }
 }
