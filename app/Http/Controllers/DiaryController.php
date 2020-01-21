@@ -51,7 +51,12 @@ class DiaryController extends Controller
 
     public function show(\App\Diary $diary)
     {
-        // dd($diary);
-        return view('diary/show', compact('diary'));
+        if(auth()->user()->following()->find($diary->user_id) || (auth()->user()->id == $diary->user_id) ){
+        // dd(auth()->user()->following()->find($diary->user_id));
+            return view('diary/show', compact('diary'));
+        }
+        else{
+            return redirect('/profile/' . auth()->user()->id);
+        }   
     }
 }
