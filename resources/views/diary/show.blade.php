@@ -11,9 +11,11 @@
                     <h5>{{ $diary->description }}</h5>
                     <p>{{ $diary->created_at }}</p>
                 </div>
-                <div class="col-4 align-self-center">
-                    <a href="/diary/{{ $diary->id }}/task/create" class="btn btn-primary">Add new Task</a>
-                </div>
+                @if(auth()->user()->id == $diary->user_id)
+                    <div class="col-4 align-self-center">
+                        <a href="/diary/{{ $diary->id }}/task/create" class="btn btn-primary">Add new Task</a>
+                    </div>
+                @endif
             </div>
         </div>        
         <ul class="list-group list-group-flush">

@@ -16,7 +16,6 @@ class DiaryController extends Controller
     {
         $users = auth()->user()->following()->pluck('profiles.user_id');
         
-
         $diaries = Diary::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->get();
         // dd($diaries);
         return view('diary/index', compact('diaries'));
