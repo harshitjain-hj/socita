@@ -1,17 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
 Auth::routes();
 
 // Follow
@@ -32,6 +20,8 @@ Route::get('/diary/{diary}', 'DiaryController@show');
 // routes for task
 Route::get('/diary/{diary}/task/create', 'TaskController@create');
 Route::post('/diary/{diary}/task', 'TaskController@store');
+Route::get('/diary/{diary}/task/{task}/edit', 'TaskController@edit');
+Route::patch('/diary/{diary}/task/{task}', 'TaskController@update');
 
 // routes for create
 Route::get('/rate/{task}/create', 'RatingController@create');

@@ -6,7 +6,7 @@
 <div class="container">
     <div class="card-group">
     @foreach($diaries as $diary)
-    <!-- <div class="p-3 col-4"> -->
+    <div class="p-3 col-sm">
         <div class="card">
             <img src="{{ $diary->image }}" class="card-img-top" alt="Cover Image">
             <div class="card-body">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
         </div>
         @endforeach    
     </div>

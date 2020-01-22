@@ -37,7 +37,7 @@
     </div>
     <div class="row">
         @foreach($user->diaries as $diary)
-            <div class="p-3 col-4">
+            <div class="p-3 col-sm">
                 <div class="card">
                     <img src="{{ $diary->image }}" class="card-img-top" alt="Image url no longer exist">
                     <div class="card-body">

@@ -21,9 +21,10 @@
         <ul class="list-group list-group-flush">
             @foreach($diary->tasks as $task)
                 <div class="d-flex bd-highlight list-group-item">
-                    <div class="p-2 flex-grow-1 bd-highlight"><h5>{{ $task->title }}</h5></div>
-                    <a href="/rate/{{$task->id}}/create" class="p-2 bd-highlight text-warning">Rate</a>
-                    <div class="p-2 bd-highlight text-danger">{{ $task->deadline }}</div>
+                    <span class="p-2 flex-grow-1 bd-highlight"><h5>{{ $task->title }}</h5></span>
+                    <a href="/diary/{{$diary->id}}/task/{{$task->id}}/edit" class="p-2 bd-highlight text-danger">EDIT</a>
+                    <a href="/rate/{{$task->id}}/create" class="p-2 bd-highlight text-info">RATE</a>
+                    <span class="p-2 bd-highlight text-danger">{{ $task->deadline }}</span>
                 </div>
             @endforeach
         </ul>
