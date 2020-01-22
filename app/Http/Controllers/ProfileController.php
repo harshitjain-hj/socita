@@ -9,6 +9,13 @@ use App\User;
 
 class ProfileController extends Controller
 {
+    public function users()
+    {
+        $users = User::all();
+        // dd($users);
+        return view('profile/users', compact('users'));
+    }
+    
     public function index(User $user)
     {
         // if the logged in user is following
