@@ -1,6 +1,7 @@
 # SociTa
 
-An application helping you to manage and organize your tasks and share them with your friends(followers). 
+An application helping you to manage and organize your tasks and share them with your friends(followers). <br/>
+Visit - http://mighty-eyrie-11222.herokuapp.com/profile/1
 
 ## Features 
 
