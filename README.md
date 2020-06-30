@@ -11,5 +11,7 @@ Visit - http://mighty-eyrie-11222.herokuapp.com/profile/1
 - Allow others to rate there tasks.
 
 ## Some screenshots
-  <img src="screenshots/diaries.png" width="67%">
+<p float="left">
+  <img src="screenshots/diaries.png" width="69%">
   <img src="screenshots/tasks_inside_diary.png" width="30%">
+</p>
